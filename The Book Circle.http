@@ -1,0 +1,6 @@
+@The_Book_Circle_HostAddress = http://localhost:5206
+
+GET {{The_Book_Circle_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

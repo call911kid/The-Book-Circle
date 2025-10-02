@@ -1,0 +1,266 @@
+[
+  {
+    "ContainingType": "The_Book_Circle._03.Presentation_Layer.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle._03.Presentation_Layer.Controllers.AccountController",
+    "Method": "LogoutAsync",
+    "RelativePath": "api/Account/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logoutDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.LogoutDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle._03.Presentation_Layer.Controllers.AccountController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Account/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle._03.Presentation_Layer.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.AuthorController",
+    "Method": "GetAuthorById",
+    "RelativePath": "api/Author",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.AuthorController",
+    "Method": "CreateAuthor",
+    "RelativePath": "api/Author",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createAuthorDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreateAuthorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.AuthorController",
+    "Method": "GetAllAuthors",
+    "RelativePath": "api/Author/index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.BookController",
+    "Method": "GetBookById",
+    "RelativePath": "api/Book",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.BookController",
+    "Method": "CreateBook",
+    "RelativePath": "api/Book",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createBookDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreateBookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.BookController",
+    "Method": "GetAllBooks",
+    "RelativePath": "api/Book/index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.BookController",
+    "Method": "SearchBooks",
+    "RelativePath": "api/Book/Search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.BookController",
+    "Method": "Test",
+    "RelativePath": "api/Book/Test",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "X",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreateBookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.GenreController",
+    "Method": "GetGenreById",
+    "RelativePath": "api/Genre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iD",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.GenreController",
+    "Method": "CreateGenre",
+    "RelativePath": "api/Genre",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createGenreDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreateGenreDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.GenreController",
+    "Method": "GetAllGenres",
+    "RelativePath": "api/Genre/Index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.PublisherController",
+    "Method": "GetPublisherById",
+    "RelativePath": "api/Publisher",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.PublisherController",
+    "Method": "CreateGenre",
+    "RelativePath": "api/Publisher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createPublisherDto",
+        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreatePublisherDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "The_Book_Circle.Controllers.PublisherController",
+    "Method": "GetAllPublishers",
+    "RelativePath": "api/Publisher/index",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
