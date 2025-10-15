@@ -23,37 +23,34 @@ namespace The_Book_Circle.Services
             _mapper = mapper;
         }
 
-        public async Task<ServiceResult<IEnumerable<BookDto>>> GetAllBooksAsync()
+        public async Task<IEnumerable<BookDto>> GetAllBooksAsync()
         {
             var books = await _bookManager.GetAllAsync();
             var bookDtos = _mapper.Map<IEnumerable<BookDto>>(books);
 
-            return ServiceResult<IEnumerable<BookDto>>
-                .Success(bookDtos);
+            return bookDtos;
         }
-        public async Task<ServiceResult<BookDto>> GetBookByIdAsync(int ID)
+        public async Task<BookDto> GetBookByIdAsync(int ID)
         {
             var book = await _bookManager.GetByIdAsync(ID)
                 ?? throw new NotFoundException("Book not found.");
 
             var bookDto = _mapper.Map<BookDto>(book);
 
-            return ServiceResult<BookDto>
-                .Success(bookDto);
+            return bookDto;
         }
 
-        public async Task<ServiceResult<BookDto>> GetBookByISBN(string ISBN)
+        public async Task<BookDto> GetBookByISBN(string ISBN)
         {
             var book = await _bookManager.GetByISBNAsync(ISBN)
                 ?? throw new NotFoundException("Book not found.");
             
             var bookDto = _mapper.Map<BookDto>(book);
 
-            return ServiceResult<BookDto>
-                .Success(bookDto);
+            return bookDto;
         }
 
-        public async Task<ServiceResult<BookDto>> CreateBookAsync(CreateBookDto createBookDto)
+        public async Task<BookDto> CreateBookAsync(CreateBookDto createBookDto)
         {
             var existingBook = await _bookManager.GetByISBNAsync(createBookDto.ISBN);
             if (existingBook != null)
@@ -87,18 +84,16 @@ namespace The_Book_Circle.Services
                 throw;
             }
 
-            return ServiceResult<BookDto>
-                .Success(
-                    _mapper.Map<BookDto>(
-                       _unitOfWork.Books.GetByISBNAsync(book.ISBN) 
-                    )
-                );
+            return _mapper.Map<BookDto>(
+                       _unitOfWork.Books.GetByISBNAsync(book.ISBN)
+                    );
+                
             
 
 
         }
 
-        public async Task<ServiceResult<IEnumerable<BookDto>>> SearchBooksAsync(string query)
+        public async Task<IEnumerable<BookDto>> SearchBooksAsync(string query)
         {
             var books = await _bookManager.SearchAsync(query);
 
@@ -107,8 +102,7 @@ namespace The_Book_Circle.Services
             
             var bookDtos = _mapper.Map<IEnumerable<BookDto>>(books);
 
-            return ServiceResult<IEnumerable<BookDto>>
-                .Success(bookDtos);
+            return bookDtos;
         }
 
        

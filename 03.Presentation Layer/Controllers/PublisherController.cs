@@ -20,13 +20,13 @@ namespace The_Book_Circle.Controllers
         public async Task<IActionResult> GetAllPublishers()
         {
             var result = await _publisherService.GetAllPublishersAsync();
-            return Ok(result.Data);
+            return Ok(result);
         }
         [HttpGet]
         public async Task<IActionResult> GetPublisherById([FromQuery] int ID)
         {
             var result = await _publisherService.GetPublisherByIdAsync(ID);
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
+            return Ok(result);
         }
 
         [HttpPost]
@@ -35,7 +35,7 @@ namespace The_Book_Circle.Controllers
         {
 
             var result = await _publisherService.CreatePublisherAsync(createPublisherDto);
-            return Ok(result.Data);
+            return Ok(result);
         }
 
     }

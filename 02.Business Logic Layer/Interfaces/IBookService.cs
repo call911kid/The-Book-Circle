@@ -6,12 +6,12 @@ namespace The_Book_Circle.Services.Interfaces
 {
     public interface IBookService
     {
-        Task<ServiceResult<IEnumerable<BookDto>>> GetAllBooksAsync();
-        Task<ServiceResult<BookDto>> GetBookByISBN(string ISBN);
-        Task<ServiceResult<BookDto>> GetBookByIdAsync(int iD);
-        Task<ServiceResult<BookDto>> CreateBookAsync(CreateBookDto createBookDto);
+        Task<IEnumerable<BookDto>> GetAllBooksAsync();
+        Task<BookDto> GetBookByISBN(string ISBN);
+        Task<BookDto> GetBookByIdAsync(int iD);
+        Task<BookDto> CreateBookAsync(CreateBookDto createBookDto);
         
-        Task<ServiceResult<IEnumerable<BookDto>>> SearchBooksAsync(string query);
+        Task<IEnumerable<BookDto>> SearchBooksAsync(string query);
         //Task<BookDto?> UpdateBookAsync(int id, BookDto bookDto);
         //Task<bool> DeleteBookAsync(int iD);
 

@@ -16,12 +16,6 @@ namespace The_Book_Circle.Controllers
         {
             _bookService = bookService;
         }
-        [HttpPost("Test")]
-        public async Task<IActionResult> Test(CreateBookDto X)
-        {
-            Console.WriteLine(ModelState.IsValid ? "VVVVVVVVVV" : "ZZZZZZ");
-            return Ok();
-        }
 
         [HttpGet("index")]
         public async Task<IActionResult> GetAllBooks()
@@ -34,15 +28,14 @@ namespace The_Book_Circle.Controllers
         {
             var result = await _bookService.GetBookByIdAsync(ID);
 
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
+            return Ok(result);
 
             
         }
         [HttpPost]
         public async Task<IActionResult> CreateBook(CreateBookDto createBookDto)
         {
-            Console.WriteLine("Testing Endpoint");
-            //throw new Exception("This is a test exception");
+            
             var createdBook = await _bookService.CreateBookAsync(createBookDto);
             return Ok(createdBook);
         }
@@ -53,22 +46,8 @@ namespace The_Book_Circle.Controllers
         {
 
             var searchResult = await _bookService.SearchBooksAsync(query);
-            if (!searchResult.IsSuccess)
-            {
-                return NotFound(new ApiResponse<IEnumerable<BookDto>>
-                {
-                    StatusCode = StatusCodes.Status404NotFound,
-                    Message = searchResult.Error
-                });
-            }
-            return Ok(new ApiResponse<IEnumerable<BookDto>>
-            {
-                IsSuccess = true,
-                StatusCode = StatusCodes.Status200OK,
-                Message = "Books retrieved successfully",
-                Data = searchResult.Data
 
-            });
+            return Ok(searchResult);
         }
 
     }

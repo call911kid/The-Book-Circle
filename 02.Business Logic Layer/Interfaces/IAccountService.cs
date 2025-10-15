@@ -5,9 +5,9 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Interfaces
 {
     public interface IAccountService
     {
-        public Task<ServiceResult<AuthenticationDto>> RegisterAsync(RegisterDto registerDto);
-        public Task<ServiceResult<AuthenticationDto>> LoginAsync(LoginDto loginDto);
-        public Task<ServiceResult> LogoutAsync(string token);
-        public Task<ServiceResult<AuthenticationDto>> RefreshTokenAsync(string token);
+        public Task<AuthenticationDto> RegisterAsync(RegisterDto registerDto);
+        public Task<AuthenticationDto> LoginAsync(LoginDto loginDto);
+        public Task<bool> LogoutAsync(string token);
+        public Task<AuthenticationDto> RefreshTokenAsync(string token);
     }
 }

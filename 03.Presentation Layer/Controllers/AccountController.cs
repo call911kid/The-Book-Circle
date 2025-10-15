@@ -22,25 +22,21 @@ namespace The_Book_Circle._03.Presentation_Layer.Controllers
 
             var result = await _accountService.RegisterAsync(registerDto);
 
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
-
+            return Ok(result);
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             var result = await _accountService.LoginAsync(loginDto);
 
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
+            return Ok(result);
         }
         [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> LogoutAsync([FromBody] LogoutDto logoutDto)
         {
             var result = await _accountService.LogoutAsync(logoutDto.RefreshToken);
-            if (!result.IsSuccess)
-            {
-                return StatusCode(result.StatusCode, result.Error);
-            }
+            
             return Ok();
         }
 
@@ -49,7 +45,7 @@ namespace The_Book_Circle._03.Presentation_Layer.Controllers
         {
             var result = await _accountService.RefreshTokenAsync(token);
 
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
+            return Ok(result);
         }
 
     }

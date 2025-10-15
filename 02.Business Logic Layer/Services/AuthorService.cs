@@ -19,25 +19,23 @@ namespace The_Book_Circle.Services
             _authorManager = authorManager;
             _mapper = mapper;
         }
-        public async Task<ServiceResult<IEnumerable<AuthorDto>>> GetAllAuthorsAsync()
+        public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync()
         {
             var authors = await _authorManager.GetAllAsync();
             var authorDtos = _mapper.Map<IEnumerable<AuthorDto>>(authors);
 
-            return ServiceResult<IEnumerable<AuthorDto>>
-                .Success(authorDtos);
+            return authorDtos;
         }
-        public async Task<ServiceResult<AuthorDto>> GetAuthorByIdAsync(int ID)
+        public async Task<AuthorDto> GetAuthorByIdAsync(int ID)
         {
             var author = await _authorManager.GetByIdAsync(ID)
                 ?? throw new NotFoundException("Author not found");
             
             var authorDto = _mapper.Map<AuthorDto>(author);
 
-            return ServiceResult<AuthorDto>
-                .Success(authorDto);
+            return authorDto;
         }
-        public async Task<ServiceResult<AuthorDto>> CreateAuthorAsync(CreateAuthorDto createAuthorDto)
+        public async Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto createAuthorDto)
         {
             var author = _mapper.Map<Author>(createAuthorDto);
             await _authorManager.CreateAsync(author);
@@ -45,8 +43,7 @@ namespace The_Book_Circle.Services
             var createdAuthor = _mapper.Map<AuthorDto>(author);
             await _authorManager.SaveChangesAsync();
 
-            return ServiceResult<AuthorDto>
-                .Success(createdAuthor);
+            return createdAuthor;
 
 
         }

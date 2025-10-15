@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("The Book Circle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44cd5de2cb128f7ed3b4984faa21c52c900a67e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d1f2f7e43d2921777451bcc39f489c916d93b15")]
 [assembly: System.Reflection.AssemblyProductAttribute("The Book Circle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("The Book Circle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

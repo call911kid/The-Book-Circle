@@ -19,7 +19,7 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
             _userManager = userManager;
             _tokenService = tokenService;
         }
-        public async Task<ServiceResult<AuthenticationDto>> RegisterAsync(RegisterDto registerDto)
+        public async Task<AuthenticationDto> RegisterAsync(RegisterDto registerDto)
         {
             if (await _userManager.FindByEmailAsync(registerDto.Email) != null)
                 throw new ConflictException("Email is already registered");
@@ -53,7 +53,7 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
             user.RefreshTokens?.Add(refreshToken);
             await _userManager.UpdateAsync(user);
 
-            return ServiceResult<AuthenticationDto>.Success(
+            return
                 new AuthenticationDto
                 {
                     IsAuthenticated = true,
@@ -65,11 +65,11 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
                     RefreshToken = refreshToken.Token,
                     RefreshTokenExpiresOn = refreshToken.ExpiresOn
 
-                }
-            );
+                };
+            
         }
 
-        public async Task<ServiceResult<AuthenticationDto>> LoginAsync(LoginDto loginDto)
+        public async Task<AuthenticationDto> LoginAsync(LoginDto loginDto)
         {
 
 
@@ -107,12 +107,13 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
                 authenticationDto.RefreshTokenExpiresOn = refreshToken.ExpiresOn;
             }
 
-            return ServiceResult<AuthenticationDto>.Success(authenticationDto);
+            return authenticationDto;
         }
 
-        public async Task<ServiceResult> LogoutAsync(string token)
+        public async Task<bool> LogoutAsync(string token)
         {
-            var user = await _userManager.Users.SingleOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == token))
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == token))
                 ?? throw new UnauthorizedException("Invalid token");
             
 
@@ -127,9 +128,9 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
             refreshToken.RevokedOn = DateTime.UtcNow;
             await _userManager.UpdateAsync(user);
 
-            return ServiceResult.Success();
+            return true;
         }
-        public async Task<ServiceResult<AuthenticationDto>> RefreshTokenAsync(string token)
+        public async Task<AuthenticationDto> RefreshTokenAsync(string token)
         {
             var user = await _userManager.Users.SingleOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == token))
                 ?? throw new UnauthorizedException("Invalid token");
@@ -153,7 +154,7 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
             var jwtToken = await _tokenService.CreateJwtToken(user);
             var roles = await _userManager.GetRolesAsync(user);
 
-            return ServiceResult<AuthenticationDto>.Success(
+            return
                 new AuthenticationDto
                 {
                     IsAuthenticated = true,
@@ -163,8 +164,8 @@ namespace The_Book_Circle._02.Business_Logic_Layer.Services
                     Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
                     ExpiresOn = jwtToken.ValidTo,
                     RefreshToken = newRefreshToken.Token
-                }
-            );
+                };
+            
         }
 
 

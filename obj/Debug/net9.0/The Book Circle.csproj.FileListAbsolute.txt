@@ -284,3 +284,4 @@ C:\Users\Mostafa Hassan\Desktop\Visual Studio Code\The Book Circle\The Book Circ
 C:\Users\Mostafa Hassan\Desktop\Visual Studio Code\The Book Circle\The Book Circle\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\Mostafa Hassan\Desktop\Visual Studio Code\The Book Circle\The Book Circle\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 C:\Users\Mostafa Hassan\Desktop\Visual Studio Code\The Book Circle\The Book Circle\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Mostafa Hassan\Desktop\Visual Studio Code\The Book Circle\The Book Circle\obj\Debug\net9.0\The Book Circle.sourcelink.json

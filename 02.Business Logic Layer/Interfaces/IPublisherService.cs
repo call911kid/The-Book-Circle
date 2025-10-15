@@ -6,8 +6,8 @@ namespace The_Book_Circle.Services.Interfaces
 {
     public interface IPublisherService
     {
-        Task<ServiceResult<IEnumerable<PublisherDto>>> GetAllPublishersAsync();
-        Task<ServiceResult<PublisherDto>> GetPublisherByIdAsync(int ID);
-        Task<ServiceResult<PublisherDto>> CreatePublisherAsync(CreatePublisherDto createPublisherDto);
+        Task<IEnumerable<PublisherDto>> GetAllPublishersAsync();
+        Task<PublisherDto> GetPublisherByIdAsync(int ID);
+        Task<PublisherDto> CreatePublisherAsync(CreatePublisherDto createPublisherDto);
     }
 }

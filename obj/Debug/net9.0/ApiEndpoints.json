@@ -164,22 +164,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "The_Book_Circle.Controllers.BookController",
-    "Method": "Test",
-    "RelativePath": "api/Book/Test",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "X",
-        "Type": "The_Book_Circle._02.Business_Logic_Layer.DTOs.Incoming.CreateBookDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "The_Book_Circle.Controllers.GenreController",
     "Method": "GetGenreById",
     "RelativePath": "api/Genre",

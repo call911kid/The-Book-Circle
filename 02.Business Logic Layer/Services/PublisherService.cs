@@ -20,25 +20,23 @@ namespace The_Book_Circle.Services
             _mapper = mapper;
         }
 
-        public async Task<ServiceResult<IEnumerable<PublisherDto>>> GetAllPublishersAsync()
+        public async Task<IEnumerable<PublisherDto>> GetAllPublishersAsync()
         {
             var publishers = await _publisherManager.GetAllAsync();
             var publisherDtos = _mapper.Map<IEnumerable<PublisherDto>>(publishers);
 
-            return ServiceResult<IEnumerable<PublisherDto>>
-                .Success(publisherDtos);
+            return publisherDtos;
         }
-        public async Task<ServiceResult<PublisherDto>> GetPublisherByIdAsync(int ID)
+        public async Task<PublisherDto> GetPublisherByIdAsync(int ID)
         {
             var publisher = await _publisherManager.GetByIdAsync(ID)
                 ?? throw new NotFoundException("Publisher not found.");
             
             var publisherDto = _mapper.Map<PublisherDto>(publisher);
 
-            return ServiceResult<PublisherDto>
-                .Success(publisherDto);
+            return publisherDto;
         }
-        public async Task<ServiceResult<PublisherDto>> CreatePublisherAsync(CreatePublisherDto createPublisherDto)
+        public async Task<PublisherDto> CreatePublisherAsync(CreatePublisherDto createPublisherDto)
         {
             var publisher = _mapper.Map<Publisher>(createPublisherDto);
             await _publisherManager.CreateAsync(publisher);
@@ -46,8 +44,7 @@ namespace The_Book_Circle.Services
             var createdPublisher = _mapper.Map<PublisherDto>(publisher);
             await _publisherManager.SaveChangesAsync();
 
-            return ServiceResult<PublisherDto>
-                .Success(createdPublisher);
+            return createdPublisher;
         }
 
         

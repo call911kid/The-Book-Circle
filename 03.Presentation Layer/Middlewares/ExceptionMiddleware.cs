@@ -14,25 +14,19 @@ namespace The_Book_Circle._03.Presentation_Layer.Middlewares
 
         public async Task InvokeAsync(HttpContext context)
         {
-            Console.WriteLine("In the Middleware....");
             try
             {
-                Console.WriteLine("Trying next middleware....");
                 await _next(context);
-                Console.WriteLine("Returned from next middleware....");
-
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Caught an Exception.....");
                 await HandleExceptionAsync(context, ex);
             }
         }
         public async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             // log
-            Console.WriteLine("Handling Exception...");
             int statusCode = exception switch
             {
                 ValidationException => StatusCodes.Status400BadRequest,
@@ -41,7 +35,7 @@ namespace The_Book_Circle._03.Presentation_Layer.Middlewares
             };
             var response = new
             {
-                error = statusCode == StatusCodes.Status500InternalServerError ? null : exception.Message,
+                error = statusCode == StatusCodes.Status500InternalServerError ? "Server Error" : exception.Message,
                 statusCode
             };
 

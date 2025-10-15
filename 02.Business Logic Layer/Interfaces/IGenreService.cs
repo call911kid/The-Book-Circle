@@ -6,8 +6,8 @@ namespace The_Book_Circle.Services.Interfaces
 {
     public interface IGenreService
     {
-        Task<ServiceResult<IEnumerable<GenreDto>>> GetAllGenresAsync();
-        Task<ServiceResult<GenreDto>> GetGenreByIdAsync(int ID);
-        Task <ServiceResult<GenreDto>> CreateGenreAsync(CreateGenreDto createGenreDto);
+        Task<IEnumerable<GenreDto>> GetAllGenresAsync();
+        Task<GenreDto> GetGenreByIdAsync(int ID);
+        Task <GenreDto> CreateGenreAsync(CreateGenreDto createGenreDto);
     }
 }

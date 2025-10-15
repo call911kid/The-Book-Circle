@@ -20,13 +20,13 @@ namespace The_Book_Circle.Controllers
         public async Task<IActionResult> GetAllGenres()
         {
             var result = await _genreService.GetAllGenresAsync();
-            return Ok(result.Data);
+            return Ok(result);
         }
         [HttpGet]
         public async Task<IActionResult> GetGenreById([FromQuery] int iD)
         {
             var result = await _genreService.GetGenreByIdAsync(iD);
-            return StatusCode(result.StatusCode, result.IsSuccess ? result.Data : result.Error);
+            return Ok(result);
         }
 
         [HttpPost]
@@ -35,7 +35,7 @@ namespace The_Book_Circle.Controllers
         {
             
             var result = await _genreService.CreateGenreAsync(createGenreDto);
-            return Ok(result.Data);
+            return Ok(result);
         }
     }
 }
